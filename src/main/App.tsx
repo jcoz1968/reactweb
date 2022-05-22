@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import Header from './Header';
 import './App.css';
 import HouseList from "../house/HouseList" ;
