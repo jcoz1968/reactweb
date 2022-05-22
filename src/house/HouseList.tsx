@@ -1,6 +1,6 @@
 import { useState } from "react";
 import config from "../config";
-import { House } from "../house/HouseList";
+import { House } from "../types/house";
 
 const HouseList = () => {
     const [houses, setHouses] = useState<House[]>([]);
