@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import ApiStatus from "../ApiStatus";
 import { currencyFormatter } from "../config";
@@ -37,6 +38,9 @@ const HouseList = () => {
               ))}
           </tbody>
         </table>
+        <Link className="btn btn-primary" to="/house/add">
+          Add
+        </Link>
       </div>        
     );
 }
