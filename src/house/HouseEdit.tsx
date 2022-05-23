@@ -2,6 +2,7 @@ import { useParams } from "react-router";
 import ApiStatus from "../ApiStatus";
 import useFetchHouses, { useFetchHouse, useUpdateHouse } from "../hooks/HouseHooks";
 import { House } from "../types/house";
+import ValidationSummary from "../ValidationSummary";
 import HouseForm from "./HouseForm";
 
 const HouseEdit = () => {
@@ -19,10 +20,15 @@ const HouseEdit = () => {
     }
 
     return (
-        <HouseForm 
-            house={data} 
-            submitted={(h) => updateHouseMutation.mutate(h)} 
-        />
+        <>
+            { updateHouseMutation.isError && (
+                <ValidationSummary error={updateHouseMutation.error} />
+            )}        
+            <HouseForm 
+                house={data} 
+                submitted={(h) => updateHouseMutation.mutate(h)} 
+            />
+        </>
     );
 }
 
