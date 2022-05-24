@@ -5,10 +5,12 @@ import { Bid } from "../types/bid";
 import Problem from "../types/problem";
 
 const useFetchBids = (houseId: number) => {
-    return useQuery<Bid[], AxiosError<Problem>>(["bids", houseId]),
-        () => axios.get(`${config.baseApiUrl}/house/${houseId}/bids`)
-            .then((resp) => resp.data);
-};
+    return useQuery<Bid[], AxiosError>(["bids", houseId], () =>
+      axios
+        .get(`${config.baseApiUrl}/house/${houseId}/bids`)
+        .then((resp) => resp.data)
+    );
+  };
 
 const useAddBid = () => {
     const queryClient = useQueryClient();
